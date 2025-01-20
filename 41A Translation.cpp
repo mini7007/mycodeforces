@@ -1,21 +1,23 @@
 #include<iostream>
-#include<string>
 using namespace std;
-int main(){
-  string s, t;
-  cin>>s;
-  cin>>t;
-  int check = 0;
-  for(int i = 0; i < s.size(); i++){
-    if(s[i] != t[t.size() - i -1]){
-      check = -1;
+int main() {
+    string s, t;
+    int a = 0;
+    cin>>s>>t; // Like this we write the words s and t
+    // Checking whether length of word s is equal to word t
+    if(s.length() == t.length()) {
+        // Since their lengths are the same, we need only 1 for loop
+        for(int i = 0; i < s.length(); i++) {
+            if(s[i] == t[s.length()-i-1]) // Checking if the words are written reversely
+                a++; // Will count how many letters are the same
+        }
+        if(a == s.length()) // If every single letter is correct then it'll be equal to lenght of s
+            cout << "YES";
+        else
+            cout << "NO";
     }
-  }
-  if(check == 0){
-    cout<<"YES";
-  }
-  else{
-    cout<<"NO";
-  }
-  return 0;
+    else
+        cout << "NO";
+        
+    return 0;
 }
